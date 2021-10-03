@@ -1,5 +1,4 @@
 import requests
-import copy
 
 class OCRClient:
   def __init__(self,key,endpoint="https://api.ocr.space/parse/image"):
