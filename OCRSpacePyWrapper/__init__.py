@@ -49,18 +49,12 @@ class OCRClient:
     if file:
       file_data = open(file,"rb")
       file_body["filename"] = file_data
-      print(file_body)
-      print(data_body)
-
       return requests.post(self.endpoint,files=file_body,data=data_body).json()
       file_data.close()
     elif url:
       data_body["url"]=url
     elif base64Image:
       data_body["base64Image"]=base64Image
-
-    print(file_body)
-    print(data_body)
     return requests.post(self.endpoint,files=file_body,data=data_body)
     
     
