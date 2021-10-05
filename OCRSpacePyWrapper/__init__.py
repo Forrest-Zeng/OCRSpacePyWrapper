@@ -104,7 +104,6 @@ class OCRClient:
           raise LanguageNotFoundError("Invalid language.")
 
         data_body = {
-          "apikey": self.key,
           "OCREngine": OCREngine,
           "language": language,
           "isOverlayRequired": isOverlayRequired,
@@ -117,8 +116,8 @@ class OCRClient:
           data_body["url"] = url
         if filetype:
           data_body["filetype"] = filetype
-        get_url=self.endpoint+"url"
+        get_url=self.endpoint+f"url?apikey={self.key}"
         for header in data_body:
-          get_url+=f"?{header}={data_body[header]}"
+          get_url+=f"&{header}={data_body[header]}"
         return requests.get(get_url).json()
         raise NoDataError("Please supply url for image")

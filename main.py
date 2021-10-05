@@ -13,4 +13,4 @@ client = OCRClient(os.environ['KEY'])
 # print(client.post(file="OCRSpacePyWrapper/test_pictures/THIS IS BEST MEME.jpeg")["ParsedResults"][0]["ParsedText"])
 # print(client.post(file="OCRSpacePyWrapper/test_pictures/this is illegal.jpeg")["ParsedResults"][0]["ParsedText"])
 
-print(client.get(url="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Imgur_logo.svg/1200px-Imgur_logo.svg.png"))
+print(client.get(url="https://irvinecoding.club/assets/images/YDRC-Workshop.png")["ParsedResults"][0]["ParsedText"])
