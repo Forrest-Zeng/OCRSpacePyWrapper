@@ -100,4 +100,25 @@ class OCRClient:
     raise NoDataError("Please supply one of file, url, or base64Image.")
 
   def get(self, *, url=None, filetype=None, OCREngine=OCREngine.Engine1, language=OCRLanguage.English, isOverlayRequired=False, detectOrientation=False, isCreateSearchablePdf=False, isSearchablePdfHideTextLayer=False, scale=False, isTable=False):
-    pass
+        if language not in OCRLanguage.languages:
+          raise LanguageNotFoundError("Invalid language.")
+
+        data_body = {
+          "apikey": self.key,
+          "OCREngine": OCREngine,
+          "language": language,
+          "isOverlayRequired": isOverlayRequired,
+          "detectOrientation": detectOrientation,
+          "isCreateSearchablePdf": isCreateSearchablePdf,"isSearchablePdfHideTextLayer": isSearchablePdfHideTextLayer,
+          "scale": scale,
+          "isTable": isTable
+        }
+        if filetype:
+          data_body["filetype"] = filetype
+        get_url=self.endpoint+"url"
+        for header in data_body:
+          get_url+=f"?{header}={data_body[header]}"
+        if url:
+          data_body["url"] = url
+          return requests.get(get_url).json()
+        raise NoDataError("Please supply url for image")
