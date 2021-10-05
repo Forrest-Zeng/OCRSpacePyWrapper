@@ -1,8 +1,13 @@
-# this is only test stuff ignore it smh
+# this is only test stuff ignore it please
 
 from OCRSpacePyWrapper import OCRClient
 import os
 
 client = OCRClient(os.environ['KEY'])
 
+
+print(client.post(file="OCRSpacePyWrapper/test_pictures/hehehe differentiation.png")["ParsedResults"][0]["ParsedText"])
 print(client.post(file="OCRSpacePyWrapper/test_pictures/lmao imaginary numbers .png")["ParsedResults"][0]["ParsedText"])
+print(client.post(file="OCRSpacePyWrapper/test_pictures/secant and cosecant are losers.png")["ParsedResults"][0]["ParsedText"])
+print(client.post(file="OCRSpacePyWrapper/test_pictures/THIS IS BEST MEME.jpeg")["ParsedResults"][0]["ParsedText"])
+print(client.post(file="OCRSpacePyWrapper/test_pictures/this is illegal.jpeg")["ParsedResults"][0]["ParsedText"])
