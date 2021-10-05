@@ -113,12 +113,12 @@ class OCRClient:
           "scale": scale,
           "isTable": isTable
         }
+        if url:
+          data_body["url"] = url
         if filetype:
           data_body["filetype"] = filetype
         get_url=self.endpoint+"url"
         for header in data_body:
           get_url+=f"?{header}={data_body[header]}"
-        if url:
-          data_body["url"] = url
-          return requests.get(get_url).json()
+        return requests.get(get_url).json()
         raise NoDataError("Please supply url for image")
