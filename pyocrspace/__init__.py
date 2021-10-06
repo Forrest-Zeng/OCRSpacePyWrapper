@@ -1,6 +1,6 @@
-from request import RequestHandler, OCR429ErrorOptions
-from errors import NoDataError, LanguageNotFoundError
-from languages import OCRLanguage
+from pyocrspace.request import RequestHandler, OCR429ErrorOptions
+from pyocrspace.errors import NoDataError, LanguageNotFoundError
+from pyocrspace.languages import OCRLanguage
 
 class OCREngine:
   Engine1 = 1
@@ -58,7 +58,7 @@ class OCRClient:
       data_body["filetype"] = filetype
     file_body = {}
     if file:
-      file_data = open(file,"rb")
+      file_data = open(file, "rb")
       file_body["filename"] = file_data
       return RequestHandler.post(self.endpoint, files=file_body, data=data_body)
     if url:

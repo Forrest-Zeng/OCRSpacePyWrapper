@@ -1,6 +1,6 @@
 # this is only test stuff ignore it please
 
-from OCRSpacePyWrapper import OCRClient
+from ocr-space-py import OCRClient
 import os
 
 client = OCRClient(os.environ['KEY'])
