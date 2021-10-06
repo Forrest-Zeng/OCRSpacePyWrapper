@@ -1,6 +1,6 @@
-from pyocrspace.request import RequestHandler, OCR429ErrorOptions
-from pyocrspace.errors import NoDataError, LanguageNotFoundError
-from pyocrspace.languages import OCRLanguage
+from ocrspace.request import RequestHandler, OCR429ErrorOptions
+from ocrspace.errors import NoDataError, LanguageNotFoundError
+from ocrspace.languages import OCRLanguage
 
 class OCREngine:
   Engine1 = 1

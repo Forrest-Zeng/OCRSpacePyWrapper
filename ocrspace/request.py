@@ -1,4 +1,4 @@
-from pyocrspace.errors import TooManyRequestsError
+from ocrspace.errors import TooManyRequestsError
 import requests, time
 
 class OCR429ErrorOptions:
